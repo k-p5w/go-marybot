@@ -1,8 +1,0 @@
-{
-    "channelName": "sk6cleine",
-    "clientID":"87l58on7wd8y8sfgyl2ja6jh7akmfy",
-    "oauthToken": "oauth:g7e2lt9vzbnxnn0oh0ghwuwnqdymuf",
-    "ClientSecret":"g7e2lt9vzbnxnn0oh0ghwuwnqdymuf",
-    "redirectUri": "http://localhost:3000/callback",
-    "botName": "sk6cleine"
-}
