@@ -21,7 +21,7 @@ type Config struct {
 
 func main() {
 
-	configPath := "config.json"
+	configPath := "authconfig.json"
 
 	// 設定ファイルを読み込む
 	configJSON, loaderr := loadConfig(configPath)
@@ -47,9 +47,11 @@ func main() {
 			fmt.Printf("<%s/%v]> %s  \n", message.User.Name, message.User.DisplayName, message.Message)
 		}
 
+		joinName := fmt.Sprintf("<%s/%v]>", message.User.Name, message.User.DisplayName)
+
 		// 初回メッセージの場合は挨拶を返す
 		if message.FirstMessage {
-			first := fmt.Sprintf("<%s/%v]>さん,はじめまして!", message.User.Name, message.User.DisplayName)
+			first := fmt.Sprintf("%vさん,はじめまして!", joinName)
 			client.Say(joinChannelName, first)
 		}
 		// ビッツ付きの場合は挨拶を返す
@@ -57,7 +59,8 @@ func main() {
 			client.Say(joinChannelName, fmt.Sprintf("%v ビッツありがとうございます!!", message.Bits))
 		}
 
-		client.Say(joinChannelName, "スタンプ対応もしたいなあァ")
+		botMsg := fmt.Sprintf("%v by %v.", message.Message, joinName)
+		client.Say(joinChannelName, botMsg)
 	})
 
 	client.OnUserJoinMessage(func(message twitch.UserJoinMessage) {
