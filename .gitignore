@@ -1,0 +1,8 @@
+config.json
+config.json
+authconfig.json
+*.txt
+*.csv*
+*.json*
+*.exe
+/markdown_output/
