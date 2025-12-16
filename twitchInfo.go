@@ -145,12 +145,17 @@ func writeToCSV(filePath string, records [][]string) error {
 
 // --- 雑談・非ゲームカテゴリIDの除外リスト (IDで確実にする) ---
 var excludedCategoryIDs = map[string]bool{
-	"509672": true, // Just Chatting (雑談)
-	"26936":  true, // Pools, Hot Tubs, and Beaches
-	"32053":  true, // ASMR
-	"509658": true, // 雑談
-	"509660": true, // 雑談
-	"498592": true, // 雑談
+	"509672":     true, // Just Chatting (雑談)
+	"26936":      true, // Pools, Hot Tubs, and Beaches
+	"32053":      true, // ASMR
+	"509658":     true, // 雑談
+	"509660":     true, // 雑談
+	"518203":     true, // 雑談
+	"498592":     true, // 雑談
+	"1669431183": true, // 雑談
+	"509663":     true, // 雑談
+	"417752":     true, // 雑談
+	"509659":     true, // 雑談
 
 	// 必要に応じて他の非ゲームカテゴリIDをここに追加してください
 }
@@ -202,8 +207,8 @@ func getTotalViewersForTopGames(clientID, token string, gameNameFile string) err
 		"視聴者分布（全体/TOP3/TOP10/裾野層）",
 		"視聴者割合（主要層 vs 裾野層）",
 		"牽引層 集中度",
-		"TOP3シェア率",    // 変更
-		"裾野層比率",      // 変更
+		"TOP3シェア率", // 変更
+		"裾野層比率",    // 変更
 	}
 
 	// 1. アーカイブ用 (全100件)
@@ -317,8 +322,8 @@ func getTotalViewersForTopGames(clientID, token string, gameNameFile string) err
 			fmt.Sprintf("%.1f%%", top3Ratio),                        // 牽引層 集中度
 			fmt.Sprintf("%.1f%%", top3Ratio),                        // 集中率（TOP3%） — 既存 top3Ratio を再利用
 			fmt.Sprintf("%.1f%%", cvPercent),                        // 分散率（CV%）
-			fmt.Sprintf("%.1f%%", top3Ratio),     // TOP3シェア率
-			fmt.Sprintf("%.1f%%", otherRatio),    // 裾野層比率
+			fmt.Sprintf("%.1f%%", top3Ratio),                        // TOP3シェア率
+			fmt.Sprintf("%.1f%%", otherRatio),                       // 裾野層比率
 		}
 
 		// 【①アーカイブ用】全レコードを記録
