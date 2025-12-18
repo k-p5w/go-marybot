@@ -15,6 +15,17 @@ import (
 
 var UsedMsg = ""
 
+// Config is 設定ファイルの構造体
+type Config struct {
+	BotName      string `json:"botName"`
+	ChannelName  string `json:"channelName"`
+	OauthToken   string `json:"oauthToken"`
+	ClientID     string `json:"clientID"`
+	ClientSecret string `json:"ClientSecret"`
+	RedirectUri  string `json:"redirectUri"`
+	DeepLAPIKey  string `json:"deepLAPIKey"`
+}
+
 // 日本語判定
 func containsJapanese(text string) bool {
 	var re = regexp.MustCompile(`[\p{Hiragana}\p{Katakana}]`)
