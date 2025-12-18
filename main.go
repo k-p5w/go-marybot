@@ -34,7 +34,8 @@ func containsJapanese(text string) bool {
 
 func main() {
 	_ = godotenv.Load()
-
+	// main関数内
+	myURL := os.Getenv("MY_URL")
 	// 1. Webサーバー設定（Render寝落ち防止 & ローカルおまじない）
 	port := os.Getenv("PORT")
 	if port == "" {
@@ -68,6 +69,9 @@ func main() {
 		if message.User.Name == botUsername {
 			return
 		}
+
+		// Renderの「30分スリープタイマー」をリセットし続ける
+		go http.Get(myURL)
 
 		first := ""
 		charUsrs[message.User.Name]++
