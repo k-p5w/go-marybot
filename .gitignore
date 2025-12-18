@@ -6,3 +6,4 @@ authconfig.json
 *.json*
 *.exe
 /markdown_output/
+.env
