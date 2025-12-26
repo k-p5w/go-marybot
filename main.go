@@ -19,6 +19,17 @@ import (
 var UsedMsg = "unknown"
 var reJapanese = regexp.MustCompile(`[\p{Hiragana}\p{Katakana}]`)
 
+// --- ここを追記：他のファイルが参照しているConfig構造体を定義 ---
+type Config struct {
+	BotName      string `json:"botName"`
+	ChannelName  string `json:"channelName"`
+	OauthToken   string `json:"oauthToken"`
+	ClientID     string `json:"clientID"`
+	ClientSecret string `json:"ClientSecret"`
+	RedirectUri  string `json:"redirectUri"`
+	DeepLAPIKey  string `json:"deepLAPIKey"`
+}
+
 type TwitchStreamInfo struct {
 	Data []struct {
 		Title    string `json:"title"`
