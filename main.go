@@ -190,8 +190,8 @@ func main() {
 		} else if err == nil && len(info.Data) == 0 {
 			// ID設定はあるが、配信してない場合は終了
 			log.Println("配信中ではないため、Botを終了します。")
-			// os.Exit(0)
-			// return
+			os.Exit(0)
+			return
 		} else {
 			// ID設定自体がない場合は、配信チェックを無視して翻訳Botとして継続
 			log.Printf("Twitch API設定がないため、配信チェックをスキップして継続します。")
